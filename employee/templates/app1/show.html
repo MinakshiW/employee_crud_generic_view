@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Show</title>
+{% endblock %}
+
+{% block content %}
+<div class="container w-75 mx-auto rounded-5 p-4 mt-4 bg-success-subtle">
+    <h1 class="text-center text-primary-emphasis mb-4">Employee Details</h1>
+    <table class="table table-dark table-striped-columns">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Email ID</th>
+                <th>Gender</th>
+                <th>Salary</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for e in obj %}
+            <tr>
+                <td>{{e.id}}</td>
+                <td>{{e.name}}</td>
+                <td>{{e.email}}</td>
+                <td>{{e.gender}}</td>
+                <td>{{e.salary}}</td>
+                <td>
+                    <a href="/a1/uv/{{e.id}}/"><button class="btn btn-outline-warning me-1">Update</button></a>
+                    <a href="/a1/dv/{{e.id}}/"><button class="btn btn-outline-danger">Delete</button></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
